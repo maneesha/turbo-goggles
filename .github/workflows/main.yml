@@ -20,7 +20,7 @@ jobs:
       - name: Fetch API and update file
         run: |
           echo "Fetching data from API..."
-          curl -s https://api.example.com/data > data.json
+          curl -s "https://uselessfacts.jsph.pl/api/v2/facts/random?language=en" > data.json
           echo "Data saved to data.json"
 
       - name: Create Pull Request
