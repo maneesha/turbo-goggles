@@ -22,6 +22,11 @@ jobs:
         with:
           python-version: '3.x'
 
+      - name: Install Python modules
+        run: |
+          python3 -m pip install --upgrade pip setuptools wheel
+          python3 -m pip install --user requests pycountry
+
       - name: Fetch API and update file
         run: |
           echo "Fetching data from API..."
