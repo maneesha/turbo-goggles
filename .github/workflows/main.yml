@@ -26,7 +26,7 @@ jobs:
           cat $FILE_NAME
       - name: Validate JSON file
         run: |
-          if jq empty "${{ env.FILE_NAME }}"; then
+          if jq empty "${{ env.FILENAME }}"; then
              echo "✅ JSON validation passed: data successful"
           else
              echo "❌ JSON validation failed"
