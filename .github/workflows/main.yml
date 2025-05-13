@@ -19,7 +19,7 @@ jobs:
 
       - name: Query API and save result
         run: |
-          API_URL="https://api.example.com/data"
+          API_URL="https://uselessfacts.jsph.pl/api/v2/facts/random?language=en"
           curl -s "$API_URL" > data.json
 
       - name: Configure Git
