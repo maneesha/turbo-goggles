@@ -12,4 +12,6 @@ done
 
 echo "</ul>" >> index.html
 
+python3 myscript.py >> index.html 
+
 
