@@ -1,2 +1,2 @@
-print("So long and thanks for all the fish")
+print("Always look on the bright side of life")
 
