@@ -34,6 +34,9 @@ jobs:
              echo "❌ JSON validation failed"
              exit 1
           fi
+
+
+          
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
@@ -41,5 +44,11 @@ jobs:
           commit-message: "new api call for ${{ env.DATESTAMP }}"
           title: "Update API data"
           body: "New API call"
-          branch: "api-update"
+          branch: "api-update-${{ env.DATESTAMP }}"
           base: main  # or your default branch
+
+
+      - name: Enable Pull Request Automerge
+        run: gh pr merge --merge --auto $PULL_REQUEST_NUMBER
+        env:
+          GH_TOKEN: ${{ secrets.PAT }}
