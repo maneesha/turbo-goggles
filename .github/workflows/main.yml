@@ -39,18 +39,4 @@ jobs:
           git checkout -b ${{ env.branch_name }}  # Create a new branch locally
           git add $FILE_NAME
           if git diff --cached --quiet; then
-            echo "No changes to commit"
-            exit 0
-          fi
-          git commit -m "Add $FILE_NAME with API data"
-          git push --set-upstream origin ${{ env.branch_name }}  # Push the new branch to the remote
-
-      - name: Create a new Pull Request
-        uses: peter-evans/create-pull-request@v5
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "Add new API data"
-          title: "Add new API data file"
-          body: "This PR adds a new file containing data from the API."
-          branch: ${{ env.branch_name }}
-          base: main  # or your default branch
+            echo "No chan
