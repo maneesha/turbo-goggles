@@ -21,7 +21,7 @@ jobs:
         run: |
           echo "Fetching data from API..."
           FILE_NAME=$(date +'%Y%m%d%H%M').json
-          curl -s "example.com" > $FILE_NAME
+          curl -s "https://uselessfacts.jsph.pl/api/v2/facts/random?language=en" > $FILE_NAME
       - name: Validate JSON file
         run: |
           if jq empty "${{ env.FILE_NAME }}"; then
