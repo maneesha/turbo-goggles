@@ -20,13 +20,14 @@ jobs:
       - name: Fetch API and update file
         run: |
           echo "Fetching data from API..."
-          FILE_NAME=$(date +'%Y%m%d%H%M').json
+          DATE_STAMP=$(date +'%Y%m%d%H%M')
+          FILE_NAME=$DATESTAMP.json
           curl -s "https://uselessfacts.jsph.pl/api/v2/facts/random?language=en" > $FILE_NAME
-          echo "FILENAME=$FILE_NAME" >> $GITHUB_ENV
+          echo "DATESTAMP=$DATE_STAMP" >> $GITHUB_ENV
           cat $FILE_NAME
       - name: Validate JSON file
         run: |
-          if jq empty "${{ env.FILENAME }}"; then
+          if jq empty "${{ env.DATESTAMP }}"; then
              echo "✅ JSON validation passed: data successful"
           else
              echo "❌ JSON validation failed"
@@ -36,7 +37,7 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "new api call for ${{ env.FILENAME }}"
+          commit-message: "new api call for ${{ env.DATESTAMP }}"
           title: "Update API data"
           body: "New API call"
           branch: "api-update"
