@@ -20,7 +20,8 @@ jobs:
       - name: Fetch API and update file
         run: |
           echo "Fetching data from API..."
-          curl -s "https://uselessfacts.jsph.pl/api/v2/facts/random?language=en" > data.json
+          FILE_NAME=$(date +'%Y%m%d%H%M').json
+          curl -s "https://uselessfacts.jsph.pl/api/v2/facts/random?language=en" > $FILE_NAME
           echo "Data saved to data.json"
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
