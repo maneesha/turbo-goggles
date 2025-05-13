@@ -36,7 +36,7 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "new api call"
+          commit-message: "new api call for ${{ env.FILENAME }}"
           title: "Update API data"
           body: "New API call"
           branch: "api-update"
