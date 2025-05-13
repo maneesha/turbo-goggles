@@ -22,6 +22,7 @@ jobs:
           echo "Fetching data from API..."
           FILE_NAME=$(date +'%Y%m%d%H%M').json
           curl -s "https://uselessfacts.jsph.pl/api/v2/facts/random?language=en" > $FILE_NAME
+          echo "FILENAME=$FILENAME" >> $GITHUB_ENV
           cat $FILE_NAME
       - name: Validate JSON file
         run: |
