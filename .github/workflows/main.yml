@@ -27,8 +27,8 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "Update data.json from API"
+          commit-message: "new api call"
           title: "Update API data"
-          body: "This PR updates data.json with the latest data from the API."
+          body: "New API call"
           branch: "api-update"
           base: main  # or your default branch
