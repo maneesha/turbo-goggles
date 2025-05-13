@@ -37,7 +37,7 @@ jobs:
             exit 0
           fi
           git commit -m "Update data.json with latest API results"
-          git push origin update-api-data
+          git push --force origin update-api-data
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
