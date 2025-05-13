@@ -19,16 +19,38 @@ jobs:
 
       - name: Fetch API and update file
         run: |
+          # Get current date and time in YYYYMMDDHHMM format
+          FILE_NAME=$(date +'%Y%m%d%H%M').json
+          
           echo "Fetching data from API..."
-          curl -s "https://uselessfacts.jsph.pl/api/v2/facts/random?language=en" > data.json
-          echo "Data saved to data.json"
+          curl -s https://api.example.com/data > $FILE_NAME
+          echo "Data saved to $FILE_NAME"
 
-      - name: Create Pull Request
+      - name: Create a unique branch name for this PR
+        id: generate_branch
+        run: |
+          # Generate a branch name with a timestamp to ensure uniqueness
+          BRANCH_NAME="update-api-data-$(date +'%Y%m%d%H%M%S')"
+          echo "Branch name: $BRANCH_NAME"
+          echo "branch_name=$BRANCH_NAME" >> $GITHUB_ENV
+
+      - name: Commit changes to the new branch
+        run: |
+          git checkout -b ${{ env.branch_name }}
+          git add $FILE_NAME
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "Add $FILE_NAME with API data"
+          git push origin ${{ env.branch_name }}
+
+      - name: Create a new Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "Update data.json from API"
-          title: "Update API data"
-          body: "This PR updates data.json with the latest data from the API."
-          branch: update-api-data
+          commit-message: "Add new API data"
+          title: "Add new API data file"
+          body: "This PR adds a new file containing data from the API."
+          branch: ${{ env.branch_name }}
           base: main  # or your default branch
