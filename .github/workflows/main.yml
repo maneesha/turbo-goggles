@@ -40,8 +40,8 @@ jobs:
              echo "❌ JSON validation failed"
              exit 1
           fi
-      - name: Run Python script 
-        run: python3 myscript.py >> index.html 
+      - name: Run shell script to create index page
+        run: bash get_facts.sh
           
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
