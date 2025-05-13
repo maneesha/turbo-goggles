@@ -1,49 +1,34 @@
-name: Query API and Commit Results
+name: Update API Data
 
 on:
   schedule:
-    - cron: '0 * * * *' # Runs every hour 
-  workflow_dispatch: # Allows manual triggering
+    - cron: '0 * * * *'  # Every hour
+  workflow_dispatch:      # Allow manual triggering
 
 jobs:
-  fetch-and-commit:
+  update-data:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: write        # Needed to push commit
+      pull-requests: write   # Needed to open a PR
+
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.x'
-
-      - name: Query API and save result
+      - name: Fetch API and update file
         run: |
-          API_URL="https://uselessfacts.jsph.pl/api/v2/facts/random?language=en"
-          curl -s "$API_URL" > data.json
-
-      - name: Configure Git
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-
-      - name: Commit and push changes
-        run: |
-          git checkout -b update-api-data || git checkout update-api-data
-          git pull --rebase origin update-api-data || echo "Nothing to rebase"
-          git add data.json
-          if git diff --cached --quiet; then
-            echo "No changes to commit"
-            exit 0
-          fi
-          git commit -m "Update data.json with latest API results"
-          git push --force origin update-api-data
+          echo "Fetching data from API..."
+          curl -s https://api.example.com/data > data.json
+          echo "Data saved to data.json"
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "Update data.json with latest API results"
+          commit-message: "Update data.json from API"
           title: "Update API data"
-          body: "Automated PR to update data.json from API."
+          body: "This PR updates data.json with the latest data from the API."
           branch: update-api-data
+          base: main  # or your default branch
