@@ -34,6 +34,28 @@ jobs:
              echo "❌ JSON validation failed"
              exit 1
           fi
+
+
+
+      - name: Create or update PR branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          BRANCH="api-update"
+          git checkout -B $BRANCH
+          git add "${{ env.FILENAME }}"
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "Add ${{ env.FILENAME }} with API data"
+          git push --set-upstream origin $BRANCH
+
+
+
+
+          
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
