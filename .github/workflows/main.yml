@@ -44,5 +44,5 @@ jobs:
           commit-message: "new api call for ${{ env.DATESTAMP }}"
           title: "Update API data"
           body: "New API call"
-          branch: "api-update-{{ env.DATESTAMP }}"
+          branch: "api-update-${{ env.DATESTAMP }}"
           base: main  # or your default branch
