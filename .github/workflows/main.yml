@@ -20,7 +20,7 @@ jobs:
       - name: Fetch API and update file
         run: |
           echo "Fetching data from API..."
-          DATE_STAMP=$(date +'%Y%m%d%H%M')
+          DATE_STAMP=$(date +'%Y%m%d_%H%M')
           FILE_NAME=$DATE_STAMP.json
           curl -s "https://uselessfacts.jsph.pl/api/v2/facts/random?language=en" > $FILE_NAME
           echo "Writing data to $FILE_NAME"
