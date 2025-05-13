@@ -23,7 +23,7 @@ jobs:
           FILE_NAME=$(date +'%Y%m%d%H%M').json
           
           echo "Fetching data from API..."
-          curl -s https://uselessfacts.jsph.pl/api/v2/facts/random?language=en > $FILE_NAME
+          curl -s https://api.example.com/data > $FILE_NAME
           echo "Data saved to $FILE_NAME"
 
       - name: Create a unique branch name for this PR
