@@ -46,3 +46,9 @@ jobs:
           body: "New API call"
           branch: "api-update-${{ env.DATESTAMP }}"
           base: main  # or your default branch
+
+
+      - name: Enable Pull Request Automerge
+        run: gh pr merge --merge --auto "1"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
