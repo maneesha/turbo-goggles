@@ -7,7 +7,7 @@ r = requests.get("https://deckofcardsapi.com/api/deck/new/draw/?count=2")
 print(r.json())
 
 time = [0, 1, 2, 3]
-position = [0, 100, 200, 300]
+position = [0, 150, 250, 125]
 
 plt.plot(time, position)
 plt.xlabel('Time (hr)')
