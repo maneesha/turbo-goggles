@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#trains {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#trains td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#trains tr:nth-child(even){background-color: #f2f2f2;}
+
+#trains tr:hover {background-color: #ddd;}
+
+#trains th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #0810f3;
+  color: white;}
+
+th[role=columnheader]:not(.no-sort) {
+	cursor: pointer;
+}
+
+th[role=columnheader]:not(.no-sort):after {
+	content: '';
+	float: right;
+	margin-top: 7px;
+	border-width: 0 4px 4px;
+	border-style: solid;
+	border-color: #f70707 transparent;
+	visibility: hidden;
+	opacity: 0;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+
+th[aria-sort=ascending]:not(.no-sort):after {
+	border-bottom: none;
+	border-width: 4px 4px 0;
+}
+
+th[aria-sort]:not(.no-sort):after {
+	visibility: visible;
+	opacity: 1;
+}
+
+th[role=columnheader]:not(.no-sort):focus:after,
+th[role=columnheader]:not(.no-sort):hover:after {
+	visibility: visible;
+	opacity: 1;
+}
+
+</style>
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.1.0/tablesort.min.js"></script>
+<script>
+function onPageReady() {
+  // Documentation: http://tristen.ca/tablesort/demo/
+  new Tablesort(document.getElementById('trains'));
+}
+// Run the above function when the page is loaded & ready
+document.addEventListener('DOMContentLoaded', onPageReady, false);
+</script>
+</head>
+<body>
+
+train_table_goes_here
+
+</body>
+</html>
