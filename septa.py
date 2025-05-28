@@ -1,6 +1,11 @@
 import requests
 import pandas as pd
 import html
+import datetime as dt 
+
+
+timestamp = dt.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+print("Data retrieved at:", timestamp)
 
 url = 'https://www3.septa.org/api/TrainView/index.php'
 headers = {
@@ -48,6 +53,7 @@ with open(page_template, 'r') as template_file:
 
 # Replace placeholder in template with html table
 html_content = template_content.replace("train_table_goes_here", data_table)
+html_content = html_content.replace("timestamp_goes_here", timestamp)
 
 # Save the final HTML content to a file
 file = "result2.html"
