@@ -1,65 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-#trains {
-  font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-#trains td, #customers th {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-
-#trains tr:nth-child(even){background-color: #f2f2f2;}
-
-#trains tr:hover {background-color: #ddd;}
-
-#trains th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #0810f3;
-  color: white;}
-
-th[role=columnheader]:not(.no-sort) {
-	cursor: pointer;
-}
-
-th[role=columnheader]:not(.no-sort):after {
-	content: '';
-	float: right;
-	margin-top: 7px;
-	border-width: 0 4px 4px;
-	border-style: solid;
-	border-color: #f70707 transparent;
-	visibility: hidden;
-	opacity: 0;
-	-ms-user-select: none;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	user-select: none;
-}
-
-th[aria-sort=ascending]:not(.no-sort):after {
-	border-bottom: none;
-	border-width: 4px 4px 0;
-}
-
-th[aria-sort]:not(.no-sort):after {
-	visibility: visible;
-	opacity: 1;
-}
-
-th[role=columnheader]:not(.no-sort):focus:after,
-th[role=columnheader]:not(.no-sort):hover:after {
-	visibility: visible;
-	opacity: 1;
-}
-
-</style>
+<link rel="stylesheet" href="css/traintable.css">
 
  <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.1.0/tablesort.min.js"></script>
 <script>
@@ -72,7 +14,8 @@ document.addEventListener('DOMContentLoaded', onPageReady, false);
 </script>
 </head>
 <body>
-
+<h1>Currently running SEPTA trains</h1>
+<h2>as of: 2025-05-29 10:50:21</h2>
 <table border="1" class="dataframe" id="trains">
   <thead>
     <tr style="text-align: right;">
@@ -89,356 +32,422 @@ document.addEventListener('DOMContentLoaded', onPageReady, false);
   </thead>
   <tbody>
     <tr>
-      <td>Norristown</td>
       <td>Suburban Station</td>
       <td>Gray 30th Street</td>
+      <td>Wynnefield Avenue</td>
+      <td>Cynwyd</td>
+      <td>1055</td>
+      <td>Cynwyd</td>
+      <td>0</td>
+      <td>1</td>
+      <td><a href="https://www.google.com/maps/search/?api=1&query=39.955108205,-75.17402146" target="_blank">View on Google Maps</a></td>
+    </tr>
+    <tr>
+      <td>Norristown</td>
+      <td>Penn Medicine Station</td>
+      <td>Darby</td>
       <td>Marcus Hook</td>
       <td>203</td>
       <td>Wilmington/Newark</td>
-      <td>0</td>
+      <td>2</td>
       <td>4</td>
-      <td><a href="https://www.google.com/maps/search/?api=1&query=39.955334833333,-75.1757135" target="_blank">View on Google Maps</a></td>
+      <td><a href="https://www.google.com/maps/search/?api=1&query=39.935610333333,-75.216017333333" target="_blank">View on Google Maps</a></td>
     </tr>
     <tr>
       <td>Wilmington</td>
-      <td>Allegheny</td>
-      <td>East Falls</td>
+      <td>Ivy Ridge</td>
+      <td>Miquon</td>
       <td>Norristown</td>
       <td>206</td>
       <td>Manayunk/Norristown</td>
-      <td>5</td>
       <td>6</td>
-      <td><a href="https://www.google.com/maps/search/?api=1&query=40.004830166667,-75.168714833333" target="_blank">View on Google Maps</a></td>
+      <td>6</td>
+      <td><a href="https://www.google.com/maps/search/?api=1&query=40.044751,-75.250832833333" target="_blank">View on Google Maps</a></td>
     </tr>
     <tr>
       <td>Norristown</td>
-      <td>Ivy Ridge</td>
-      <td>Manayunk</td>
+      <td>Allegheny</td>
+      <td>North Broad</td>
       <td>Wawa</td>
       <td>2303</td>
       <td>Manayunk/Norristown</td>
-      <td>3</td>
       <td>5</td>
-      <td><a href="https://www.google.com/maps/search/?api=1&query=40.030605666667,-75.232118" target="_blank">View on Google Maps</a></td>
+      <td>5</td>
+      <td><a href="https://www.google.com/maps/search/?api=1&query=39.995426,-75.1558785" target="_blank">View on Google Maps</a></td>
     </tr>
     <tr>
       <td>Newark</td>
-      <td>Crum Lynne</td>
-      <td>Ridley Park</td>
+      <td>Sharon Hill</td>
+      <td>Curtis Park</td>
       <td>Doylestown</td>
       <td>2500</td>
       <td>Wilmington/Newark</td>
       <td>3</td>
       <td>5</td>
-      <td><a href="https://www.google.com/maps/search/?api=1&query=39.872254,-75.330629333333" target="_blank">View on Google Maps</a></td>
+      <td><a href="https://www.google.com/maps/search/?api=1&query=39.9044305,-75.270311833333" target="_blank">View on Google Maps</a></td>
+    </tr>
+    <tr>
+      <td>Norristown</td>
+      <td>Norristown T.C.</td>
+      <td>Conshohocken</td>
+      <td>Malvern</td>
+      <td>2547</td>
+      <td>Manayunk/Norristown</td>
+      <td>3</td>
+      <td>4</td>
+      <td><a href="https://www.google.com/maps/search/?api=1&query=40.112782166667,-75.3443945" target="_blank">View on Google Maps</a></td>
     </tr>
     <tr>
       <td>Media</td>
-      <td>Noble</td>
-      <td>Rydal</td>
+      <td>Philmont</td>
+      <td>Forest Hills</td>
       <td>West Trenton</td>
       <td>302</td>
       <td>West Trenton</td>
+      <td>9</td>
       <td>6</td>
-      <td>6</td>
-      <td><a href="https://www.google.com/maps/search/?api=1&query=40.104587,-75.123434666667" target="_blank">View on Google Maps</a></td>
+      <td><a href="https://www.google.com/maps/search/?api=1&query=40.1299305,-75.014195666667" target="_blank">View on Google Maps</a></td>
     </tr>
     <tr>
       <td>West Trenton</td>
-      <td>Yardley</td>
-      <td>Woodbourne</td>
+      <td>Langhorne</td>
+      <td>Neshaminy</td>
       <td>Media</td>
       <td>303</td>
       <td>West Trenton</td>
-      <td>3</td>
+      <td>2</td>
       <td>6</td>
-      <td><a href="https://www.google.com/maps/search/?api=1&query=40.2144175,-74.861791666667" target="_blank">View on Google Maps</a></td>
+      <td><a href="https://www.google.com/maps/search/?api=1&query=40.147034833333,-74.961467666667" target="_blank">View on Google Maps</a></td>
     </tr>
     <tr>
       <td>Wawa</td>
-      <td>Angora</td>
-      <td>49th Street</td>
+      <td>Gray 30th Street</td>
+      <td>Suburban Station</td>
       <td>Norristown TC</td>
       <td>3206</td>
-      <td>Media/Wawa</td>
-      <td>2</td>
+      <td>Manayunk/Norristown</td>
+      <td>4</td>
       <td>5</td>
-      <td><a href="https://www.google.com/maps/search/?api=1&query=39.9462575,-75.2286155" target="_blank">View on Google Maps</a></td>
+      <td><a href="https://www.google.com/maps/search/?api=1&query=39.955697666667,-75.178327166667" target="_blank">View on Google Maps</a></td>
+    </tr>
+    <tr>
+      <td>Wawa</td>
+      <td>Wawa</td>
+      <td>Elwyn Station</td>
+      <td>Norristown</td>
+      <td>3208</td>
+      <td>Media/Wawa</td>
+      <td>0</td>
+      <td>6</td>
+      <td><a href="https://www.google.com/maps/search/?api=1&query=39.893919166667,-75.447328333333" target="_blank">View on Google Maps</a></td>
     </tr>
     <tr>
       <td>West Trenton</td>
-      <td>Noble</td>
-      <td>Jenkintown Wyncote</td>
+      <td>Fern Rock T C</td>
+      <td>Temple University</td>
       <td>Malvern</td>
       <td>3501</td>
-      <td>West Trenton</td>
-      <td>3</td>
+      <td>Paoli/Thorndale</td>
+      <td>5</td>
       <td>4</td>
-      <td><a href="https://www.google.com/maps/search/?api=1&query=40.099538833333,-75.1358825" target="_blank">View on Google Maps</a></td>
+      <td><a href="https://www.google.com/maps/search/?api=1&query=40.041035333333,-75.134874" target="_blank">View on Google Maps</a></td>
     </tr>
     <tr>
       <td>West Trenton</td>
-      <td>Overbrook</td>
-      <td>Merion</td>
+      <td>Rosemont</td>
+      <td>Villanova</td>
       <td>Thorndale</td>
       <td>3591</td>
       <td>Paoli/Thorndale</td>
+      <td>3</td>
       <td>4</td>
-      <td>4</td>
-      <td><a href="https://www.google.com/maps/search/?api=1&query=39.997477,-75.251393" target="_blank">View on Google Maps</a></td>
+      <td><a href="https://www.google.com/maps/search/?api=1&query=40.028172166667,-75.327124" target="_blank">View on Google Maps</a></td>
     </tr>
     <tr>
       <td>Airport</td>
-      <td>Melrose Park</td>
-      <td>Elkins Park</td>
+      <td>Glenside</td>
+      <td>Ardsley</td>
       <td>Warminster</td>
       <td>404</td>
       <td>Warminster</td>
-      <td>9</td>
+      <td>10</td>
       <td>5</td>
-      <td><a href="https://www.google.com/maps/search/?api=1&query=40.071181333333,-75.127647166667" target="_blank">View on Google Maps</a></td>
+      <td><a href="https://www.google.com/maps/search/?api=1&query=40.107459833333,-75.158833333333" target="_blank">View on Google Maps</a></td>
     </tr>
     <tr>
-      <td>Airport Terminal E-F</td>
-      <td>Airport Terminal E F</td>
-      <td>Airport Terminal E-F</td>
+      <td>Airport</td>
+      <td>Eastwick</td>
+      <td>Penn Medicine Station</td>
       <td>Warminster</td>
       <td>408</td>
-      <td>Airport</td>
+      <td>Warminster</td>
       <td>0</td>
-      <td>1</td>
-      <td><a href="https://www.google.com/maps/search/?api=1&query=39.9538889,-75.1677778" target="_blank">View on Google Maps</a></td>
+      <td>4</td>
+      <td><a href="https://www.google.com/maps/search/?api=1&query=39.921241833333,-75.220762" target="_blank">View on Google Maps</a></td>
     </tr>
     <tr>
       <td>Warminster</td>
-      <td>Gray 30th Street</td>
       <td>Penn Medicine Station</td>
+      <td>Eastwick</td>
       <td>Airport</td>
       <td>409</td>
       <td>Airport</td>
-      <td>6</td>
+      <td>11</td>
       <td>4</td>
-      <td><a href="https://www.google.com/maps/search/?api=1&query=39.87833,-75.2402715" target="_blank">View on Google Maps</a></td>
+      <td><a href="https://www.google.com/maps/search/?api=1&query=39.920959166667,-75.2208075" target="_blank">View on Google Maps</a></td>
     </tr>
     <tr>
       <td>Warminster</td>
-      <td>Hatboro</td>
-      <td>Willow Grove</td>
+      <td>Crestmont</td>
+      <td>Roslyn</td>
       <td>Airport</td>
       <td>413</td>
       <td>Warminster</td>
+      <td>8</td>
       <td>5</td>
-      <td>5</td>
-      <td><a href="https://www.google.com/maps/search/?api=1&query=40.175777833333,-75.1028285" target="_blank">View on Google Maps</a></td>
+      <td><a href="https://www.google.com/maps/search/?api=1&query=40.1240435,-75.1299555" target="_blank">View on Google Maps</a></td>
     </tr>
     <tr>
       <td>Warminster</td>
-      <td>Wayne Junction</td>
-      <td>Temple University</td>
+      <td>Jefferson Station</td>
+      <td>Suburban Station</td>
       <td>30th Street Gray</td>
       <td>4511</td>
-      <td>Warminster</td>
+      <td>Paoli/Thorndale</td>
+      <td>2</td>
       <td>4</td>
-      <td>4</td>
-      <td><a href="https://www.google.com/maps/search/?api=1&query=40.008927166667,-75.161733666667" target="_blank">View on Google Maps</a></td>
+      <td><a href="https://www.google.com/maps/search/?api=1&query=39.95361243,-75.164581265" target="_blank">View on Google Maps</a></td>
     </tr>
     <tr>
       <td>Doylestown</td>
-      <td>Gray 30th Street</td>
-      <td>Gray 30th Street</td>
+      <td>Overbrook</td>
+      <td>Merion</td>
       <td>Malvern</td>
       <td>503</td>
       <td>Paoli/Thorndale</td>
       <td>3</td>
       <td>5</td>
-      <td><a href="https://www.google.com/maps/search/?api=1&query=39.956641,-75.1815535" target="_blank">View on Google Maps</a></td>
+      <td><a href="https://www.google.com/maps/search/?api=1&query=39.996764833333,-75.251419166667" target="_blank">View on Google Maps</a></td>
     </tr>
     <tr>
       <td>Thorndale</td>
-      <td>Ambler</td>
-      <td>Penllyn</td>
+      <td>North Wales</td>
+      <td>Pennbrook</td>
       <td>Doylestown</td>
       <td>514</td>
       <td>Lansdale/Doylestown</td>
-      <td>2</td>
       <td>4</td>
-      <td><a href="https://www.google.com/maps/search/?api=1&query=40.160613833333,-75.233328333333" target="_blank">View on Google Maps</a></td>
+      <td>4</td>
+      <td><a href="https://www.google.com/maps/search/?api=1&query=40.216333333333,-75.277812333333" target="_blank">View on Google Maps</a></td>
     </tr>
     <tr>
       <td>Thorndale</td>
-      <td>Jefferson Station</td>
-      <td>Temple University</td>
+      <td>Wayne Junction</td>
+      <td>Fern Rock T C</td>
       <td>Lansdale</td>
       <td>516</td>
       <td>Lansdale/Doylestown</td>
-      <td>0</td>
+      <td>3</td>
       <td>6</td>
-      <td><a href="https://www.google.com/maps/search/?api=1&query=39.964039166667,-75.151889666667" target="_blank">View on Google Maps</a></td>
+      <td><a href="https://www.google.com/maps/search/?api=1&query=40.022718166667,-75.159674" target="_blank">View on Google Maps</a></td>
     </tr>
     <tr>
       <td>Doylestown</td>
-      <td>Lansdale</td>
-      <td>Pennbrook</td>
+      <td>North Wales</td>
+      <td>Gwynedd Valley</td>
       <td>Newark</td>
       <td>5205</td>
       <td>Lansdale/Doylestown</td>
-      <td>0</td>
       <td>5</td>
-      <td><a href="https://www.google.com/maps/search/?api=1&query=40.243718666667,-75.285403666667" target="_blank">View on Google Maps</a></td>
+      <td>5</td>
+      <td><a href="https://www.google.com/maps/search/?api=1&query=40.214643833333,-75.2773895" target="_blank">View on Google Maps</a></td>
     </tr>
     <tr>
       <td>Thorndale</td>
-      <td>Malvern</td>
-      <td>Paoli</td>
+      <td>Strafford</td>
+      <td>Wayne</td>
       <td>West Trenton</td>
       <td>5300</td>
       <td>Paoli/Thorndale</td>
       <td>2</td>
       <td>6</td>
-      <td><a href="https://www.google.com/maps/search/?api=1&query=40.0430765,-75.490145166667" target="_blank">View on Google Maps</a></td>
+      <td><a href="https://www.google.com/maps/search/?api=1&query=40.048317166667,-75.396005833333" target="_blank">View on Google Maps</a></td>
+    </tr>
+    <tr>
+      <td>Malvern</td>
+      <td>Malvern</td>
+      <td>Malvern</td>
+      <td>Neshaminy Falls</td>
+      <td>5302</td>
+      <td>Paoli/Thorndale</td>
+      <td>2</td>
+      <td>4</td>
+      <td><a href="https://www.google.com/maps/search/?api=1&query=40.034684833333,-75.553391166667" target="_blank">View on Google Maps</a></td>
+    </tr>
+    <tr>
+      <td>West Trenton</td>
+      <td>West Trenton</td>
+      <td>Yardley</td>
+      <td>30th Street Gray</td>
+      <td>6307</td>
+      <td>West Trenton</td>
+      <td>0</td>
+      <td>6</td>
+      <td><a href="https://www.google.com/maps/search/?api=1&query=40.257271833333,-74.815528" target="_blank">View on Google Maps</a></td>
     </tr>
     <tr>
       <td>Doylestown</td>
-      <td>Doylestown</td>
-      <td>Delaware Valley College</td>
+      <td>Chalfont</td>
+      <td>Link Belt</td>
       <td>30th Street Gray</td>
       <td>6589</td>
       <td>Lansdale/Doylestown</td>
-      <td>1</td>
       <td>6</td>
-      <td><a href="https://www.google.com/maps/search/?api=1&query=40.296615,-75.1603385" target="_blank">View on Google Maps</a></td>
+      <td>6</td>
+      <td><a href="https://www.google.com/maps/search/?api=1&query=40.288874666667,-75.216968" target="_blank">View on Google Maps</a></td>
     </tr>
     <tr>
       <td>Lansdale</td>
-      <td>Oreland</td>
-      <td>North Hills</td>
+      <td>Glenside</td>
+      <td>Jenkintown Wyncote</td>
       <td>30th Street Gray</td>
       <td>6595</td>
       <td>Lansdale/Doylestown</td>
-      <td>3</td>
+      <td>8</td>
       <td>1</td>
       <td><a href="https://www.google.com/maps/search/?api=1&query=39.9538889,-75.1677778" target="_blank">View on Google Maps</a></td>
     </tr>
     <tr>
       <td>Trenton</td>
-      <td>Gray 30th Street</td>
-      <td>Suburban Station</td>
+      <td>Jefferson Station</td>
+      <td>Temple University</td>
       <td>Chestnut H East</td>
       <td>702</td>
       <td>Chestnut Hill East</td>
       <td>4</td>
       <td>6</td>
-      <td><a href="https://www.google.com/maps/search/?api=1&query=39.956575333333,-75.182058333333" target="_blank">View on Google Maps</a></td>
+      <td><a href="https://www.google.com/maps/search/?api=1&query=39.959625755,-75.152733895" target="_blank">View on Google Maps</a></td>
     </tr>
     <tr>
       <td>Chestnut H East</td>
-      <td>Temple University</td>
-      <td>Jefferson Station</td>
+      <td>Gray 30th Street</td>
+      <td>North Philadelphia Amtrak</td>
       <td>Trenton</td>
       <td>703</td>
       <td>Trenton</td>
+      <td>3</td>
       <td>4</td>
-      <td>4</td>
-      <td><a href="https://www.google.com/maps/search/?api=1&query=39.95282972,-75.15885418" target="_blank">View on Google Maps</a></td>
+      <td><a href="https://www.google.com/maps/search/?api=1&query=39.956784166667,-75.183008" target="_blank">View on Google Maps</a></td>
     </tr>
     <tr>
       <td>Trenton</td>
-      <td>Bristol</td>
-      <td>Croydon</td>
+      <td>Cornwells Heights</td>
+      <td>Torresdale</td>
       <td>Norristown TC</td>
       <td>7204</td>
       <td>Trenton</td>
-      <td>0</td>
+      <td>1</td>
       <td>5</td>
-      <td><a href="https://www.google.com/maps/search/?api=1&query=40.101666833333,-74.861532666667" target="_blank">View on Google Maps</a></td>
+      <td><a href="https://www.google.com/maps/search/?api=1&query=40.054556166667,-74.984485166667" target="_blank">View on Google Maps</a></td>
     </tr>
     <tr>
       <td>Chestnut H West</td>
-      <td>Suburban Station</td>
-      <td>Jefferson Station</td>
+      <td>Temple University</td>
+      <td>Wayne Junction</td>
       <td>Fox Chase</td>
       <td>802</td>
       <td>Fox Chase</td>
-      <td>0</td>
+      <td>2</td>
       <td>4</td>
-      <td><a href="https://www.google.com/maps/search/?api=1&query=39.953094545,-75.162311045" target="_blank">View on Google Maps</a></td>
+      <td><a href="https://www.google.com/maps/search/?api=1&query=39.991712666667,-75.153537166667" target="_blank">View on Google Maps</a></td>
     </tr>
     <tr>
       <td>Fox Chase</td>
-      <td>Gray 30th Street</td>
       <td>North Philadelphia Amtrak</td>
+      <td>Queen Lane</td>
       <td>Chestnut H West</td>
       <td>803</td>
       <td>Chestnut Hill West</td>
+      <td>6</td>
       <td>4</td>
-      <td>4</td>
-      <td><a href="https://www.google.com/maps/search/?api=1&query=39.958726,-75.185735833333" target="_blank">View on Google Maps</a></td>
+      <td><a href="https://www.google.com/maps/search/?api=1&query=40.002513833333,-75.1623755" target="_blank">View on Google Maps</a></td>
     </tr>
     <tr>
       <td>Fox Chase</td>
-      <td>Lawndale</td>
-      <td>Olney</td>
+      <td>Wayne Junction</td>
+      <td>Temple University</td>
       <td>Chestnut H West</td>
       <td>805</td>
-      <td>Fox Chase</td>
+      <td>Chestnut Hill West</td>
+      <td>8</td>
       <td>4</td>
-      <td>4</td>
-      <td><a href="https://www.google.com/maps/search/?api=1&query=40.040896833333,-75.112415333333" target="_blank">View on Google Maps</a></td>
+      <td><a href="https://www.google.com/maps/search/?api=1&query=40.012217166667,-75.1619175" target="_blank">View on Google Maps</a></td>
+    </tr>
+    <tr>
+      <td>Newark</td>
+      <td>Churchman's Crossing</td>
+      <td>Wilmington</td>
+      <td>Temple U</td>
+      <td>9204</td>
+      <td>Wilmington/Newark</td>
+      <td>0</td>
+      <td>6</td>
+      <td><a href="https://www.google.com/maps/search/?api=1&query=39.696943666667,-75.665867666667" target="_blank">View on Google Maps</a></td>
     </tr>
     <tr>
       <td>Temple U</td>
-      <td>Chester TC</td>
-      <td>Highland Avenue</td>
+      <td>Claymont</td>
+      <td>Wilmington</td>
       <td>Newark</td>
       <td>9215</td>
       <td>Wilmington/Newark</td>
-      <td>3</td>
+      <td>8</td>
       <td>4</td>
-      <td><a href="https://www.google.com/maps/search/?api=1&query=39.848850333333,-75.361993166667" target="_blank">View on Google Maps</a></td>
+      <td><a href="https://www.google.com/maps/search/?api=1&query=39.789672666667,-75.464914" target="_blank">View on Google Maps</a></td>
     </tr>
     <tr>
       <td>Wawa</td>
-      <td>Elwyn Station</td>
-      <td>Media</td>
+      <td>Swarthmore</td>
+      <td>Morton</td>
       <td>Temple U</td>
       <td>9366</td>
       <td>Media/Wawa</td>
-      <td>1</td>
+      <td>2</td>
       <td>6</td>
-      <td><a href="https://www.google.com/maps/search/?api=1&query=39.912684166667,-75.406282666667" target="_blank">View on Google Maps</a></td>
+      <td><a href="https://www.google.com/maps/search/?api=1&query=39.902500166667,-75.350204333333" target="_blank">View on Google Maps</a></td>
     </tr>
     <tr>
-      <td>Airport</td>
+      <td>Temple U</td>
+      <td>Temple University</td>
       <td>Jefferson Station</td>
-      <td>Temple University</td>
-      <td>Temple U</td>
-      <td>9406</td>
-      <td>Warminster</td>
-      <td>0</td>
-      <td>3</td>
-      <td><a href="https://www.google.com/maps/search/?api=1&query=39.953186495,-75.1553357" target="_blank">View on Google Maps</a></td>
-    </tr>
-    <tr>
-      <td>Temple U</td>
-      <td>Temple University</td>
-      <td>Temple U</td>
       <td>Airport</td>
       <td>9411</td>
       <td>Airport</td>
-      <td>1</td>
-      <td>1</td>
-      <td><a href="https://www.google.com/maps/search/?api=1&query=39.9538889,-75.1677778" target="_blank">View on Google Maps</a></td>
+      <td>5</td>
+      <td>5</td>
+      <td><a href="https://www.google.com/maps/search/?api=1&query=39.9809355,-75.149612333333" target="_blank">View on Google Maps</a></td>
+    </tr>
+    <tr>
+      <td>Thorndale</td>
+      <td>Whitford</td>
+      <td>Exton</td>
+      <td>Temple U</td>
+      <td>9590</td>
+      <td>Paoli/Thorndale</td>
+      <td>0</td>
+      <td>6</td>
+      <td><a href="https://www.google.com/maps/search/?api=1&query=40.015763666667,-75.634709333333" target="_blank">View on Google Maps</a></td>
     </tr>
     <tr>
       <td>Temple U</td>
-      <td>Cornwells Heights</td>
       <td>Levittown</td>
+      <td>Trenton</td>
       <td>Trenton</td>
       <td>9705</td>
       <td>Trenton</td>
       <td>0</td>
       <td>5</td>
-      <td><a href="https://www.google.com/maps/search/?api=1&query=40.136294833333,-74.821392833333" target="_blank">View on Google Maps</a></td>
+      <td><a href="https://www.google.com/maps/search/?api=1&query=40.2172105,-74.755353166667" target="_blank">View on Google Maps</a></td>
     </tr>
   </tbody>
 </table>
