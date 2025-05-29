@@ -1,7 +1,11 @@
 import requests
-import pprint
-import pandas as pd 
-import html 
+import pandas as pd
+import html
+import datetime as dt 
+
+
+timestamp = dt.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+print("Data retrieved at:", timestamp)
 
 url = 'https://www3.septa.org/api/TrainView/index.php'
 headers = {
@@ -12,10 +16,9 @@ try:
     response = requests.get(url, headers=headers)
     response.raise_for_status()
     data = response.json()
-    pprint.pp(data)
+    print(f"Retrieved {len(data)} records.")
 except requests.exceptions.RequestException as e:
     print(f"An error occurred: {e}")
-
 
 df = pd.DataFrame(data)
 
@@ -27,50 +30,32 @@ def location_url(lat, lon):
 
 
 def count_cars(car_list):
-    car_count = car_count.split(",")
-    return len(car_count) if isinstance(car_list, list) else 0
+    car_count = car_list.split(",")
+    return len(car_count) if isinstance(car_count, list) else 0
 
-
-df['count_cars'] = df['consist'].apply(lambda x: len(x.split(",")) if isinstance(x, str) else 0)
+# Return count of cars instead of list of car numbers
+df['count_cars'] = df['consist'].apply(count_cars)
+# Convert lat/lon to Google Maps URL
 df['location_url'] = df.apply(lambda row: location_url(row['lat'], row['lon']), axis=1)
 
-lat = df.iloc[0]['lat']
-lon = df.iloc[0]['lon']
-
-# print(f"Latitude: {lat}, Longitude: {lon}")
-
-
-# print(f"https://www.google.com/maps/@4{lat},{lon}+(label)")
-# print(f"https://www.google.com/maps/search/?api=1&query={lat},{lon}")
-
+# Limit colums 
 cols = ['SOURCE', 'currentstop',  'nextstop', 'dest', 'trainno', 'line', 'late', 'count_cars', 'location_url']
-
-
 df = df[cols]
+
+# Convert dataframe to HTML table 
 data_table = df.to_html(table_id="trains", index=False)
 data_table = html.unescape(data_table)
 
+# Retrieve page template as string 
 page_template = "septa_table_template.html"
 with open(page_template, 'r') as template_file:
     template_content = template_file.read()
 
-
-print(template_content[:100])
-
-
+# Replace placeholder in template with html table
 html_content = template_content.replace("train_table_goes_here", data_table)
+html_content = html_content.replace("timestamp_goes_here", timestamp)
 
-print("\n" * 10)
-
-print(html_content[:1000])
-
-# print(type(data_table))
+# Save the final HTML content to a file
 file = "result2.html"
 with open(file, "w") as file:
     file.write(html_content)
-
-
-
-# print("SAN FRAN:", "https://www.google.com/maps/search/?api=1&query=37.7749,-122.4194")
-
-
