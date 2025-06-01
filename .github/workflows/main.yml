@@ -1,8 +1,8 @@
 name: Update API Data
 
 on:
-  schedule:
-    - cron: '0 17 * * *'  once a day at 1700
+  # schedule:
+  #   - cron: '0 17 * * *'  once a day at 1700
   workflow_dispatch:      # Allow manual triggering
 
 jobs:
